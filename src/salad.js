@@ -78,7 +78,7 @@ class Salad {
         let proteinStrings = [];
         this.proteins.forEach(e => proteinStrings.push(e.name));
         this.extras.forEach(e => extrasStrings.push(e.name));
-        return ('Bas: ' + this.foundation[0].name + ', Protein: ' + proteinStrings + ', Tillbehör: ' + extrasStrings + ', Dressing: ' + this.dressing[0].name)
+        return ('Bas: ' + this.foundation[0].name + ' \nProtein: ' + proteinStrings + ' \nTillbehör: ' + extrasStrings + ' \nDressing: ' + this.dressing[0].name)
     }
 }
 

@@ -15,13 +15,19 @@ class App extends Component {
     }
   
     this.handleOrderChange = this.handleOrderChange.bind(this);
+    this.removeSalad = this.removeSalad.bind(this);
   }
 
   handleOrderChange(salad) {
     let newOrder = this.state.order;
     newOrder.push(salad);
     this.setState({order: newOrder});
-    console.log(this.state);
+  }
+
+  removeSalad(index) {
+    let newOrder = this.state.order;
+    newOrder.splice(index, 1);
+    this.setState({order: newOrder});
   }
 
   render() {
@@ -43,7 +49,7 @@ class App extends Component {
         <br />
 
         <div className="container">
-          <ViewOrder order={this.state.order} inventory={inventory} />
+          <ViewOrder order={this.state.order} removeSalad={this.removeSalad}/>
         </div>
       </div>
     );
