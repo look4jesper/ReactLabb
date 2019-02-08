@@ -3,8 +3,15 @@ import React from "react";
 class ViewOrder extends React.Component {
     constructor(props) {
         super(props);
+
+        this.handleClick=this.handleClick.bind(this);
     }
-  
+    
+        handleClick(event) {
+            const index = event.target.value;
+            this.props.removeSalad(index);
+        }
+
         render() {
             const order = this.props.order;
             if (!order) {
@@ -25,7 +32,16 @@ class ViewOrder extends React.Component {
                                     {e.key + ', ' + order[e.index].toString()}
                                 </h5>
                                 
-                                <span className="badge badge-primary badge-pill">{order[e.index].price() + ' kr'}</span>
+                                <span className="badge badge-primary badge-pill ">{order[e.index].price() + ' kr'} 
+                                    <button
+                                        type="button"
+                                        className="btn btn-link btn-sm text-danger font-weight-bolder text-align-top text-decoration-none"
+                                        value={e.index}
+                                        onClick={this.handleClick}
+                                    >X
+                                    </button>
+                                </span>
+                                
                                 
                             </li>    
                         )}
