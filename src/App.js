@@ -1,28 +1,53 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import inventory from "./inventory.ES6";
+import ComposeSalad from "./ComposeSalad";
+import ComposeSaladModal from "./ComposeSaladModal";
+import Salad from "./salad";
+import ViewOrder from './ViewOrder';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      salads: [Salad]
+    }
+  
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    let newSalads = this.state.salads;
+    newSalads.push(event.target.state.salad);
+    this.setState({salad: newSalads});
+    console.log(this.state);
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
+      <div>
+        <div className="jumbotron text-center">
+          <h1 className="display-4">Gott o' Grönt</h1>
+          <p className="lead">
+            Världens första helt digitala sallad
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+          <hr className="my-4" />
+          <p>Klicka på knappen för att börja!</p>
+        </div >
+  
+        <div className="container">
+          <ComposeSaladModal  inventory={inventory} onChange={this.handleChange} />
+        </div>
+
+        <br />
+
+        <div className="container">
+          <ViewOrder salads={this.state.salads} inventory={inventory} />
+        </div>
       </div>
     );
-  }
+  } 
 }
 
 export default App;
