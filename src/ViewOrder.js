@@ -16,8 +16,7 @@ class ViewOrder extends React.Component {
               alert("inventory is undefined in ComposeSalad");
             }
 
-            let salads = [];
-            let myCesarSalad = new Salad();
+            /*let myCesarSalad = new Salad();
             myCesarSalad.addFoundation({...inventory.Sallad, name: 'Sallad'});
             myCesarSalad.addProtein({...inventory['Kycklingfilé'], name: 'Kyckling'});
             myCesarSalad.addExtra({...this.props.inventory.Krutonger, name: 'Krutonger'});
@@ -26,13 +25,13 @@ class ViewOrder extends React.Component {
             myCesarSalad.addDressing({...this.props.inventory.Ceasardressing, name: 'Caesar'});
             salads.push(myCesarSalad);
             salads.push(myCesarSalad);
-            salads.push(myCesarSalad);
-            //salads = this.props.salads;
+            salads.push(myCesarSalad);*/
+            const order = this.props.order;
             let keys = [];
-            for (let index = 0; index < salads.length; index++) {
+            for (let index = 0; index < order.length; index++) {
                 keys.push({key: 'Sallad ' + (index + 1), index: index});
             }
-            if (!salads) {
+            if (!order) {
                     alert("salads is undefined in ViewOrder");
             }
 
@@ -42,9 +41,9 @@ class ViewOrder extends React.Component {
                         {keys.map(e => 
                             <li className="list-group-item d-flex justify-content-between align-items-center" key={e.key}>
                                 <h5>
-                                    {e.key + ', ' + salads[e.index].toString()}
+                                    {e.key + ', ' + order[e.index].toString()}
                                 </h5>
-                                <span className="badge badge-primary badge-pill">{salads[e.index].price() + ' kr'}</span>
+                                <span className="badge badge-primary badge-pill">{order[e.index].price() + ' kr'}</span>
                             </li>    
                         )}
                     </ul>

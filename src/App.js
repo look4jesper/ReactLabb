@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      order: [Salad]
+      order: []
     }
   
     this.handleOrderChange = this.handleOrderChange.bind(this);
@@ -20,7 +20,7 @@ class App extends Component {
   handleOrderChange(salad) {
     let newOrder = this.state.order;
     newOrder.push(salad);
-    this.setState({salad: newOrder});
+    this.setState({order: newOrder});
     console.log(this.state);
   }
 
