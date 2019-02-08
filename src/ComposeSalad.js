@@ -81,14 +81,14 @@ class ComposeSalad extends React.Component {
         name: 'Ceasardressing',
         price: 5
       },
-      salad: submitSalad
+      
     });
 
     document.querySelector('form[name=saladForm').reset();
 
     alert(submitSalad.toString());
     
-    return submitSalad;
+    this.props.onOrderChange(submitSalad)
 
   }
 

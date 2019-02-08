@@ -11,16 +11,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      salads: [Salad]
+      order: [Salad]
     }
   
-    this.handleChange = this.handleChange.bind(this);
+    this.handleOrderChange = this.handleOrderChange.bind(this);
   }
 
-  handleChange(event) {
-    let newSalads = this.state.salads;
-    newSalads.push(event.target.state.salad);
-    this.setState({salad: newSalads});
+  handleOrderChange(salad) {
+    let newOrder = this.state.order;
+    newOrder.push(salad);
+    this.setState({salad: newOrder});
     console.log(this.state);
   }
 
@@ -37,13 +37,13 @@ class App extends Component {
         </div >
   
         <div className="container">
-          <ComposeSaladModal  inventory={inventory} onChange={this.handleChange} />
+          <ComposeSaladModal  inventory={inventory} handleOrderChange={this.handleOrderChange} />
         </div>
 
         <br />
 
         <div className="container">
-          <ViewOrder salads={this.state.salads} inventory={inventory} />
+          <ViewOrder order={this.state.order} inventory={inventory} />
         </div>
       </div>
     );

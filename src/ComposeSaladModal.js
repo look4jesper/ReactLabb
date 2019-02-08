@@ -3,20 +3,6 @@ import ComposeSalad from "./ComposeSalad";
 import Salad from "./salad";
 
 class ComposeSaladModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      salad: Salad
-    }
-  
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const salad = event.target.state.salad;
-    this.setState({salad: salad});
-    console.log(this.state.salad);
-  }
 
   render() {
     return (
@@ -53,7 +39,7 @@ class ComposeSaladModal extends React.Component {
                 </button>
               </div>
               <div className="modal-body">
-                <ComposeSalad inventory={this.props.inventory} onSubmit={this.handleChange} />
+                <ComposeSalad inventory={this.props.inventory} handleOrderChange={this.props.handleOrderChange} />
               </div>
               <div className="modal-footer">
                 <button
