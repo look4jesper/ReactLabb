@@ -49,6 +49,6 @@ class ViewOrder extends React.Component {
                 </div>
             );
         }
-  }
+}
   
-  export default ViewOrder;
+export default ViewOrder;

@@ -39,7 +39,7 @@ class ComposeSaladModal extends React.Component {
                 </button>
               </div>
               <div className="modal-body">
-                <ComposeSalad inventory={this.props.inventory} handleOrderChange={this.props.handleOrderChange} />
+                <ComposeSalad inventory={this.props.inventory} handleOrderChange={this.props.handleOrderChange} history={this.props.history} />
               </div>
               <div className="modal-footer">
                 <button
