@@ -70,9 +70,6 @@ class ComposeSalad extends React.Component {
   handleSubmit(event) {
       event.preventDefault();
       event.target.classList.add("was-validated");
-      console.log(event.target.checkValidity());
-      console.log(this.state.formErrors.proteins);
-      console.log(this.state.formErrors.extras);
       
 
 
